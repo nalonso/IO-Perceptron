@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1574227088 source:c:\users\nahuel alonso\desktop\perceptroninc\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Perceptron.h"
+
+1574224398 c:\users\nahuel alonso\desktop\perceptroninc\neuron.h
+	"Sigmoid.h"
+
+1574224405 c:\users\nahuel alonso\desktop\perceptroninc\layer.h
+	"Neuron.h"
+
+1574223303 c:\users\nahuel alonso\desktop\perceptroninc\sigmoid.h
+	<math.h>
+
+1574227074 c:\users\nahuel alonso\desktop\perceptroninc\perceptron.h
+	"Layer.h"
+	<math.h>
+
