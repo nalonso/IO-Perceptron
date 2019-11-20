@@ -1,10 +1,14 @@
 #ifndef NEURON_H_INCLUDED
 #define NEURON_H_INCLUDED
 #include "Sigmoid.h"
-
+#include<time.h>
+#include<stdlib.h>
 double GetRandomNumber(int idx)
 {
-    return rand() % 100 + idx;
+    double num = rand();
+    num = 1+rand()%(101-1+idx);
+    num = num * (rand()%(20+idx));
+    return num;
 }
 
 struct NeuronStruct
@@ -15,18 +19,16 @@ struct NeuronStruct
     double bias;
 };
 
-struct NeuronStruct *CreateNeuron (int numberOfInputs)
+InitNeuron (struct NeuronStruct *neuron, int numberOfInputs)
 {
-    struct NeuronStruct *toReturn = 0;
-    toReturn = (struct NeuronStruct *)malloc(sizeof(struct NeuronStruct *));
-    toReturn->totalWeights = 0;
-    toReturn->bias = 1.0 * (GetRandomNumber(2) - GetRandomNumber(3));
+    neuron->totalWeights = numberOfInputs;
+    neuron->bias = 10 * GetRandomNumber(10) - 5;
+        /*printf("bias %fl\n", neuron->bias);*/
     for(int idx = 0; idx < numberOfInputs; idx++)
     {
-        toReturn->totalWeights++;
-        toReturn->weights[idx] = 1.0 * (GetRandomNumber(idx) - GetRandomNumber(idx));
+        neuron->weights[idx] = 10 * GetRandomNumber(idx * 3) - 5;
+        /*printf("pesoNeuron %fl\n", neuron->weights[idx]);*/
     }
-    return toReturn;
 };
 
 double ActivateNeuron(struct NeuronStruct *neuron, double inputs[10])
